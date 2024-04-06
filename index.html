@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KYC Video</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    
+  </head>
+  <body>
+    <div class="video-kyc">
+        <div class="container-fluid">
+            <div class='web_cam_app'>
+                <div class='row'>
+                  <div class="col-md-8">
+                    <div class='kyc-video'>
+                    <div class="header">
+                        <button class='video-back'><i class="fas fa-chevron-left"></i></button>
+                        <h1>Video KYC</h1>
+                        <span><i aria-hidden="true" class="fas fa-user-friends"></i> _1234548945615_1545645645_</span>
+              
+                    </div>
+                    <div class='video-info'>
+                      <div class='video-invited'>
+                        <div class='video-presents'>Invited to call: <span>6</span></div>
+                        <div class='video-absent'>Absent people: <span>2</span></div>
+                      </div>
+                      <button>Add User</button>
+              
+                    </div>
+              
+                    <div class='webcam'>
+                      <div class='webcam-container'>
+                        <div class='webcam-user'>
+                          <img src='https://i.pravatar.cc/50?img=5'>
+                          <div>
+                            <span>Customer</span>
+                            <p>Audie Yose</p>
+                          </div>
+                        </div>
+              
+                        <div class='video-controls'>
+                          <ul>
+                            <li><button class='control'><i class="fas fa-expand-arrows-alt"></i></button></li>
+                            <li><button class='control'><i class="fas fa-microphone-alt-slash"></i></button></li>
+                            <li><button class='control--end-call call-join'><i class="fas fa-phone"></i></button></li>
+                            <li><button class='control'><i class="fas fa-video"></i></button></li>
+                            <li><button class='control'><i class="fas fa-cog"></i></button></li>
+                          </ul>
+                        </div>
+              
+                        <div class='webcam-video'>
+                            <video autoplay="true" id="cam-stream"></video>
+                        </div>
+
+                      </div>
+                    </div>
+              
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class='kyc-chat'>
+              
+                    <div class='kyc-chat-window'>
+                      <header class='kyc-chat-info'>
+                        <h2>Chat</h2>
+                        <div>
+                          <button class='chat-tab chat-tab-active'>Messages</button>
+                          <button class='chat-tab'>Participants</button>
+                        </div>
+                      </header>
+                      <div class='chat-conversation'>
+                        <div class='user-chat'>
+                          <span>You</span>
+                          <p>Good evening, is this available?</p>
+                        </div>
+              
+                        <div class='user-chat user-chat-other '>
+                          <span>Lubalin</span>
+                          <p>Yes it is</p>
+                        </div>
+              
+                        <div class='user-chat '>
+                          <span>You</span>
+                          <p>Please leave me alone - we are sleeping.</p>
+                        </div>
+              
+                        <div class='user-chat user-chat-other '>
+                          <span>Lubalin</span>
+                          <p>?</p>
+                        </div>
+              
+                        <div class='user-chat'>
+                          <span>You</span>
+                          <p>No more contact please. Thanks appreciate.</p>
+                        </div>
+              
+                        <div class='user-chat user-chat-other '>
+                          <span>Lubalin</span>
+                          <p>You contacted me</p>
+                        </div>
+              
+                        <div class='user-chat'>
+                          <span>You</span>
+                          <p>I know - i no longer interested. Please stop contact me now. I will contact attorney general if you do not stop. Thsnks</p>
+                        </div>
+                      </div>
+                      <div class='chat-input'>
+                        <input type='text' placeholder='Write your message...'>
+                        <button class='chat-inputs-send' aria-label='Send message'><i aria-hidden='true' class="fas fa-paper-plane"></i></button>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        const video = document.querySelector("#cam-stream");
+
+        const endCall = document.querySelector(".control--end-call");
+        endCall.addEventListener("click", function () {
+            if (video.srcObject === null) {
+                requestVideo();
+            } else {
+                video.srcObject = null;
+                endCall.classList.add("call-join");
+            }
+        });
+
+        function requestVideo() {
+            if (navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices
+                .getUserMedia({ video: true })
+                .then(function (stream) {
+                    video.srcObject = stream;
+                    endCall.classList.remove("call-join");
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            }
+        }
+        requestVideo();
+
+    </script>
+  </body>
+</html>

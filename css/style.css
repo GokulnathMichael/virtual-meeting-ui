@@ -1,0 +1,424 @@
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --chat-bg: #edf0f5;
+    --chat-you: #d0d3e3;
+    --icon-primary: #9da5b0;
+    --icon-primary-hover: #7f858e;
+    --text: #2c3550;
+    --text-secondary: #777d8e;
+    --borders: #e9eaec;
+    --active-tab: #00a389;
+    --active-tab-secondary: #e0f4f1;
+    --active-chat-tab-bg: #d1e7e8;
+    --active-chat-tab-text: #007a67;
+    --secondary-brand: #fc5d5b;
+    --end-call: #fc5d5b;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+  }
+  
+  body {
+    width: 100%;
+    min-height: 100vh;
+    color: var(--text);
+  }
+  
+  button {
+    cursor: pointer;
+  }
+
+  /* .kyc-main {
+    display: grid;
+    grid-template-columns: 2fr minmax(440px, 1fr);
+    width: 100%;
+    height: 100vh;
+  } */
+  .kyc-chat {
+    height: calc(100vh - 30px);
+  }
+  .kyc-chat-window {
+    margin: 1rem;
+    border-radius: 10px;
+    height: 100%;
+    background-color: var(--chat-bg);
+  }
+  .kyc-chat-info {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--borders);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    border-radius: 10px 10px 0 0;
+  }
+  .kyc-chat-info h2 {
+    font-weight: 500;
+    font-size: 24px;
+  }
+  .chat-conversation {
+    overflow-y: scroll;
+    max-height: 530px;
+    min-height: 530px;
+  }
+  .chat-tab {
+    padding: 5px 10px;
+    border-radius: 6px;
+    background: transparent;
+    border: 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+  .chat-tab-active {
+    background: var(--active-chat-tab-bg);
+    color: var(--active-chat-tab-text);
+  }
+  .chat-tab:hover, .chat-tab:focus {
+    background-color: var(--chat-you);
+    color: var(--text);
+  }
+  .chat-input {
+    position: relative;
+    margin: 1rem;
+  }
+  .chat-inputs-send {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background-color: var(--active-tab);
+    border: 0;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--white);
+  }
+  .chat-input input {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    background: var(--white);
+    border-radius: 12px;
+    width: 100%;
+    min-height: 45px;
+    padding: 1rem;
+    font-size: 15px;
+    border: 0;
+  }
+  
+  .user-chat {
+    padding: 0 2rem;
+    /* margin: 1rem 0; */
+    float: right;
+    text-align: right;
+  }
+  .user-chat span {
+    font-size: 12px;
+    font-weight: 600;
+    display: block;
+  }
+  .user-chat p {
+    padding: 1rem;
+    border-radius: 15px;
+    background: var(--chat-you);
+    margin: 0.5rem 0;
+    display: inline-block;
+    position: relative;
+    text-align: left;
+  }
+  .user-chat p:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 30px 0 0 15px;
+    border-color: transparent transparent transparent var(--chat-you);
+    position: absolute;
+    right: -5px;
+    bottom: 0;
+  }
+  .user-chat.user-chat-other {
+        float: left;
+        text-align: left;
+  }
+  .user-chat-other p {
+    background-color: var(--white);
+  }
+  .user-chat-other p:after {
+    left: -5px;
+    border-width: 0 0 30px 15px;
+    border-color: transparent transparent var(--white) transparent;
+  }
+
+/* width */
+::-webkit-scrollbar {
+    width: 2px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #a2a2a2;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a2a2a2;
+  }
+
+
+  
+  .kyc-video .header {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  .kyc-video .header h1 {
+    font-size: 25px;
+    font-weight: 500;
+  }
+  .kyc-video .header span {
+    margin-left: 1rem;
+    background: #d0d3e3;
+    color: #435091;
+    padding: 0.5rem 1rem;
+    border-radius: 14px;
+    font-weight: 500;
+  }
+  .kyc-video .header span svg {
+    margin-right: 10px;
+  }
+  .video-back {
+    width: 40px;
+    height: 40px;
+    background: var(--borders);
+    color: var(--icon-primary-hover);
+    border-radius: 12px;
+    margin-right: 1rem;
+    border: 0;
+  }
+  .video-info {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .video-info button {
+    background: transparent;
+    border: 0;
+    position: relative;
+    color: var(--active-tab);
+    font-size: 16px;
+  }
+  .video-info button:before {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--active-tab);
+    content: "+";
+    font-size: 17px;
+    color: var(--white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+  }
+  .video-invited {
+    display: flex;
+    font-weight: 500;
+  }
+  .video-invited span {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    margin-left: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .video-presents span {
+    background: var(--active-tab-secondary);
+    color: var(--active-tab);
+  }
+  .video-absent {
+    margin-left: 1rem;
+  }
+  .video-absent span {
+    background: #fcf2f2;
+    color: #fc5d5b;
+  }
+  
+  .webcam {
+    width: 100%;
+    height: 650px;
+    max-height: 585px;
+    padding: 1rem;
+  }
+  
+  .webcam-container {
+    width: 100%;
+    height: 100%;
+    background: var(--chat-you);
+    border-radius: 12px;
+    position: relative;
+  }
+  
+  .webcam-user {
+    z-index: 2;
+    position: relative;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  .webcam-user div {
+    margin-left: 0.5rem;
+    color: var(--white);
+  }
+  .webcam-user div span {
+    font-size: 12px;
+  }
+  .webcam-user div p {
+    font-weight: 500;
+    margin: 0;
+  }
+  .webcam-user img {
+    border-radius: 30px;
+  }
+  .video-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #565656c9;
+    text-align: center;
+    border-radius: 15px;
+}
+i.far.fa-user {
+    font-size: 3rem;
+    color: #fff;
+    background: #00a389;
+    width: 120px;
+    height: 120px;
+    padding: 30px;
+    border-radius: 50%;
+}
+  .video-controls {
+    z-index: 2;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .video-controls ul {
+    display: flex;
+    align-items: center;
+  }
+  .video-controls li {
+    margin: 0 1rem;
+    list-style: none;
+  }
+  
+  .control {
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    border-radius: 100rem;
+    border: 0;
+    color: var(--white);
+    font-size: 18px;
+    position: relative;
+    background: transparent;
+    overflow: hidden;
+  }
+  .control:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
+    filter: blur(10px);
+  }
+  .control--end-call {
+    width: 70px;
+    height: 70px;
+    background-color: var(--end-call);
+    border-radius: 30px;
+    border: 0;
+    color: var(--white);
+    font-size: 18px;
+    box-shadow: rgba(252, 93, 91, 0.7) 0px 7px 29px 0px;
+  }
+  
+  #cam-stream {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    border-radius: 15px;
+  }
+  
+  .call-join {
+    background-color: var(--active-tab);
+    box-shadow: rgba(35, 183, 80, 0.7) 0px 7px 29px 0px;
+  }
+  
+  @media only screen and (max-width: 1150px) {
+  
+    .kyc-main {
+      grid-template-columns: 80px 1fr;
+    }
+  }
+  @media only screen and (max-width: 720px) {
+    .c-webcam-inchat img {
+      max-width: 50px;
+      border-width: 2px;
+      border-radius: 100rem;
+    }
+  
+    .kyc-video .header {
+      flex-wrap: wrap;
+    }
+    .kyc-video .header span {
+      margin: 1rem 0;
+    }
+  
+    .video-invited {
+      display: none;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .kyc-main {
+      grid-template-columns: 1fr;
+    }
+
+    .video-controls {
+      left: 1.5rem;
+      transform: translateX(0);
+      top: 85%;
+      transform: translateY(-50%);
+    }
+  
+    .video-controls ul {
+      flex-direction: row;
+    }
+    .video-controls ul li {
+      margin: 10px 0;
+    }
+  }
